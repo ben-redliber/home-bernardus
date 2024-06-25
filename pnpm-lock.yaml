@@ -62,6 +62,9 @@ importers:
       lucide-react:
         specifier: ^0.395.0
         version: 0.395.0(react@18.3.1)
+      maath:
+        specifier: ^0.10.7
+        version: 0.10.7(@types/three@0.165.0)(three@0.165.0)
       next:
         specifier: ^14.2.1
         version: 14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -77,6 +80,9 @@ importers:
       react:
         specifier: ^18.3.0
         version: 18.3.1
+      react-animated-cursor:
+        specifier: ^2.11.2
+        version: 2.11.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-dom:
         specifier: ^18.3.0
         version: 18.3.1(react@18.3.1)
@@ -89,6 +95,9 @@ importers:
       three:
         specifier: ^0.165.0
         version: 0.165.0
+      use-screen-size:
+        specifier: ^1.1.0
+        version: 1.1.0(react@18.3.1)
       zod:
         specifier: ^3.23.3
         version: 3.23.8
@@ -2490,6 +2499,12 @@ packages:
     peerDependencies:
       webpack: ^4.0.0 || ^5.0.0
 
+  react-animated-cursor@2.11.2:
+    resolution: {integrity: sha512-LV0PtST61tdeW/chCqFt1JLp6i0d5fD9v2uradBcPAkKKCi2Iw7sAcD11ADS1TjXPPj9MOoD9YubEt++/IbZ+g==}
+    peerDependencies:
+      react: ^18.2.0
+      react-dom: ^18.2.0
+
   react-composer@5.0.3:
     resolution: {integrity: sha512-1uWd07EME6XZvMfapwZmc7NgCZqDemcvicRi3wMJzXsQLvZ3L7fTHVyPy1bZdnWXM4iPjYuNE+uJ41MLKeTtnA==}
     peerDependencies:
@@ -2918,6 +2933,12 @@ packages:
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
+
+  use-screen-size@1.1.0:
+    resolution: {integrity: sha512-GmHD1guO2+t5XZ1M8w/H7hlC1CO6IsD3lz1l9o+mKpmZfcm27cHKDw0J5kkj5sy3WT3hZAtno6pVaI3lRzDszA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16.0.0
 
   use-sync-external-store@1.2.0:
     resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
@@ -5476,6 +5497,11 @@ snapshots:
       schema-utils: 3.3.0
       webpack: 5.92.1(esbuild@0.19.12)
 
+  react-animated-cursor@2.11.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   react-composer@5.0.3(react@18.3.1):
     dependencies:
       prop-types: 15.8.1
@@ -5976,6 +6002,10 @@ snapshots:
   uri-js@4.4.1:
     dependencies:
       punycode: 2.3.1
+
+  use-screen-size@1.1.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
 
   use-sync-external-store@1.2.0(react@18.3.1):
     dependencies:

@@ -72,9 +72,9 @@ export default function RootLayout({
       lang="en"
       className={`${displayFont.variable} ${mainFont.className} ${bopFont.variable} text-rose-600`}
     >
-      <body className="cursor-main bg-radial-gradient from-stone-950 from-10% to-black">
+      <body className="cursor-none bg-slate-950">
         <NavBar />
-        <SmoothScrolling>{children}</SmoothScrolling>
+        {children}
       </body>
     </html>
   );
