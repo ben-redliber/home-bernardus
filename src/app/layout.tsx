@@ -4,7 +4,7 @@ import { Righteous, Archivo } from "next/font/google";
 import local from "next/font/local";
 
 import { NavBar } from "~/components/NavBar";
-import SmoothScrolling from "~/providers/react-lenis";
+import Overlay from "./_components/overlay";
 
 const displayFont = Righteous({
   weight: ["400"],
@@ -72,9 +72,14 @@ export default function RootLayout({
       lang="en"
       className={`${displayFont.variable} ${mainFont.className} ${bopFont.variable} text-rose-600`}
     >
-      <body className="cursor-none bg-slate-950">
+      <body
+        className="w-svw cursor-none
+
+        "
+      >
         <NavBar />
         {children}
+        <Overlay />
       </body>
     </html>
   );

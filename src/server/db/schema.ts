@@ -6,6 +6,7 @@ import {
   index,
   pgTableCreator,
   serial,
+  text,
   timestamp,
   varchar,
 } from "drizzle-orm/pg-core";
@@ -18,17 +19,22 @@ import {
  */
 export const createTable = pgTableCreator((name) => `home-bernardus_${name}`);
 
-export const posts = createTable(
-  "post",
-  {
-    id: serial("id").primaryKey(),
-    name: varchar("name", { length: 256 }),
-    createdAt: timestamp("created_at", { withTimezone: true })
-      .default(sql`CURRENT_TIMESTAMP`)
-      .notNull(),
-    updatedAt: timestamp("updatedAt", { withTimezone: true }),
-  },
-  (example) => ({
-    nameIndex: index("name_idx").on(example.name),
-  })
-);
+export const posts = createTable("posts", {
+  post_id: serial("post_id").primaryKey(),
+  post_name: varchar("post_name", { length: 256 }),
+  post_created_at: timestamp("post_created_at", { withTimezone: true })
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull(),
+  post_updated_at: timestamp("post_updated_at", { withTimezone: true }),
+  post_content: text("post_content"),
+});
+
+export const quotes = createTable("quotes", {
+  quote_id: serial("quote_id").primaryKey(),
+  quote_content: varchar("quote_content", { length: 1024 }),
+  quote_author: varchar("quote_author", { length: 512 }),
+  quote_created_at: timestamp("quote_created_at", { withTimezone: true })
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull(),
+  quote_updated_at: timestamp("quote_updated_at", { withTimezone: true }),
+});
