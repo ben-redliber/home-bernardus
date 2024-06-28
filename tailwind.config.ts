@@ -11,9 +11,9 @@ const config = {
   ],
   prefix: "",
   theme: {
-    backgroundImage: {
-      "radial-gradient": "radial-gradient(circle, var(--tw-gradient-stops))",
-    },
+    // backgroundImage: {
+    //   "radial-gradient": "radial-gradient(circle, var(--tw-gradient-stops))",
+    // },
     container: {
       center: true,
       padding: "2rem",

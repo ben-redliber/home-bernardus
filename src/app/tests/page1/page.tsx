@@ -23,61 +23,9 @@ export default function Page() {
           <OrbitControls />
           <ambientLight intensity={1} />
           {/* <directionalLight intensity={2} /> */}
-          <Torus />
+          {/* <Torus /> */}
         </Canvas>
       </div>
     </main>
-  );
-}
-
-export function Torus() {
-  const redRef = useRef();
-  const blackRef = useRef();
-
-  const maxDistance = 180;
-  const interval = 1.65;
-  const radius = 8;
-  const tube = radius + radius * 0.1;
-  const detail = 90;
-  const torusArr = [];
-  for (let i = 0; i <= maxDistance; i += interval) {
-    // const iRadius = (radius / i) * 0.9;
-    torusArr.push({
-      pos: i,
-      // radius: iRadius,
-      // tube: iRadius * 1.2,
-    });
-  }
-
-  useFrame((state) => {
-    const { clock } = state;
-
-    const timeStretch = 0.5;
-    // redRef.current.position.x = -1 * (clock.getElapsedTime() * timeStretch);
-    // blackRef.current.position.x = clock.getElapsedTime() * timeStretch;
-  });
-  return (
-    <>
-      <group ref={redRef}>
-        {torusArr.map((item) => {
-          return (
-            <mesh key={item} position={[item.pos, 0, 0]}>
-              <ringGeometry args={[radius, tube, detail]} />
-              <meshBasicMaterial color={roseColor} />
-            </mesh>
-          );
-        })}
-      </group>
-      <group ref={blackRef}>
-        {torusArr.map((item) => {
-          return (
-            <mesh key={item} position={[-item.pos, 0, 0]}>
-              <ringGeometry args={[radius, tube, detail]} />
-              <meshBasicMaterial color="#09090b" />
-            </mesh>
-          );
-        })}
-      </group>
-    </>
   );
 }
