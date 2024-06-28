@@ -169,7 +169,7 @@ export function Layout() {
         </group>
       </Scroll>
       <Scroll>
-        <group position={[0, -62.5, -15]} scale={[0.8, 0.8, 0.8]}>
+        <group position={[0, -70, -15]} scale={[0.8, 0.8, 0.8]}>
           <DarkSpeed SCROLLOFFSET={SCROLLOFFSET2} />
         </group>
       </Scroll>
@@ -184,13 +184,14 @@ export function Layout() {
                 className="font-hardbop text-center align-top text-[30vw] font-black text-rose-500 md:text-[16vw]"
                 style={{ letterSpacing: "0.01em", lineHeight: "0.7" }}
               >
-                BERNARD<span className="font-outline-2 text-slate-950">US</span>
+                BERNARD
+                <span className="font-outline-2 text-slate-950">US</span>
               </p>
             </div>
           </div>
-          <div className=" absolute top-[300vh] w-[100vw]">
+          <div className=" absolute top-[150vh] w-[100vw]">
             <div
-              className="font-hardbop flex w-full flex-col gap-0 text-center text-[15vw] font-black text-gray-300"
+              className="font-hardbop flex w-full flex-col gap-20 text-center text-[15vw] font-black text-gray-300"
               style={{ letterSpacing: "0em", lineHeight: "12vw" }}
             >
               <p>GRAPHIC DESIGNER</p>
@@ -200,9 +201,9 @@ export function Layout() {
               <p>SCREENWRITER</p>
             </div>
           </div>
-          <div className=" absolute top-[480vh] w-[100vw]">
+          <div className=" absolute top-[465vh] w-[100vw]">
             <div
-              className="font-hardbop flex w-full flex-col gap-0 px-20 text-center  text-[15vw] font-black text-gray-300"
+              className="font-hardbop flex w-full flex-col gap-20 px-20 text-center  text-[15vw] font-black text-gray-300"
               style={{ letterSpacing: "0em", lineHeight: "12vw" }}
             >
               <div className="w-full">
@@ -225,7 +226,7 @@ export function Layout() {
               </div>
               <div className=" w-full">
                 <p>
-                  THE BEST CODES PUMPS THE{" "}
+                  THE BEST CODES PUMP THE{" "}
                   <span className="  bg-gradient-to-br from-rose-700 to-rose-800 bg-clip-text text-transparent">
                     {" "}
                     HEART
@@ -255,13 +256,12 @@ export function Layout() {
               ))} */}
             </div>
           </div>
-          <div
-            className="absolute top-[975vh] h-[100vh] w-[100vw] bg-slate-950"
-            // style={{ backgroundColor: ROSECOLORSPHERE }}
-          ></div>
         </div>
+        <div
+          className="absolute top-[1050vh] h-[200vh] w-[100vw]"
+          style={{ backgroundColor: ROSECOLORSPHERE }}
+        ></div>
       </Scroll>
-      <Scroll></Scroll>
     </ScrollControls>
   );
 }
