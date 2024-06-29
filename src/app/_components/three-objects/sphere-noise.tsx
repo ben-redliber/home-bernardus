@@ -5,8 +5,9 @@ import { useFrame } from "@react-three/fiber";
 
 import frag from "~/shaders/sphere-noise/fragment.glsl";
 import sphereNoiseVertex from "~/shaders/sphere-noise/vertex.glsl";
+import { COLORS } from "~/app/data";
 
-export function SphereNoise() {
+export function SphereNoise({ ...props }) {
   const meshRef = useRef();
   const hoverRef = useRef(false);
   const { width, height } = useScreenSize();
@@ -36,18 +37,26 @@ export function SphereNoise() {
   });
 
   return (
-    <mesh
-      onPointerOver={() => (hoverRef.current = true)}
-      ref={meshRef}
-      onPointerOut={() => (hoverRef.current = false)}
-      position={[0, -36, -15]}
-    >
-      <icosahedronGeometry args={[sphereRadius, 72]} />
-      <shaderMaterial
-        vertexShader={sphereNoiseVertex}
-        fragmentShader={frag}
-        uniforms={uniforms}
-      />
-    </mesh>
+    <group {...props}>
+      <mesh
+        onPointerOver={() => (hoverRef.current = true)}
+        ref={meshRef}
+        onPointerOut={() => (hoverRef.current = false)}
+      >
+        <icosahedronGeometry args={[sphereRadius, 72]} />
+        <shaderMaterial
+          vertexShader={sphereNoiseVertex}
+          fragmentShader={frag}
+          uniforms={uniforms}
+        />
+      </mesh>
+      <mesh scale={[0.9, 0.9, 0.9]}>
+        <icosahedronGeometry args={[sphereRadius, 60]} />
+        <meshBasicMaterial
+          color={COLORS.ROSECOLORSPHERE}
+          side={THREE.BackSide}
+        />
+      </mesh>
+    </group>
   );
 }

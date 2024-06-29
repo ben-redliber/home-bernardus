@@ -15,7 +15,7 @@ export default function ThreeEffects({ children }: { children: ReactNode }) {
     <>
       <EffectComposer>
         <Noise opacity={0.05} />
-        <Vignette eskil={true} offset={1.25} darkness={1.05} />
+        <Vignette eskil={true} offset={1.25} darkness={1.025} />
         <ChromaticAberration
           blendFunction={BlendFunction.NORMAL} // blend mode
           offset={[0.002, 0.0005]} // color offset

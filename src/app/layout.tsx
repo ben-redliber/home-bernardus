@@ -70,7 +70,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${displayFont.variable} ${mainFont.className} ${bopFont.variable} bg-slate-950 text-rose-600`}
+      className={`${displayFont.variable} ${mainFont.className} ${bopFont.variable} bg-slate-950 text-rose-500`}
     >
       <body className="w-svw">
         <NavBar />

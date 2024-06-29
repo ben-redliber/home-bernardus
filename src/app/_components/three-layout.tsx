@@ -47,23 +47,14 @@ export default function ThreeLayout() {
         <Hero />
       </Scroll>
       <Scroll>
-        <group renderOrder={0}>
-          <SphereNoise />
-          <group position={[0, -36, -15]} scale={[0.9, 0.9, 0.9]}>
-            <mesh>
-              <icosahedronGeometry args={[sphereRadius, 60]} />
-              <meshBasicMaterial
-                color={COLORS.ROSECOLORSPHERE}
-                side={THREE.BackSide}
-              />
-            </mesh>
-          </group>
-        </group>
+        <SphereNoise renderOrder={0} position={[0, -36, -15]} />
       </Scroll>
       <Scroll>
-        <group position={[0, -70, -15]} scale={[0.8, 0.8, 0.8]}>
-          <DarkSpeed SCROLLOFFSET={SCROLLS.SCROLLOFFSET_2} />
-        </group>
+        <DarkSpeed
+          SCROLLOFFSET={SCROLLS.SCROLLOFFSET_2}
+          position={[0, -66, -15]}
+          scale={[0.8, 0.8, 0.8]}
+        />
       </Scroll>
       <Scroll html>
         <ThreeHTML />
