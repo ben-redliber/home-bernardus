@@ -5,6 +5,8 @@ import local from "next/font/local";
 
 import { NavBar } from "~/components/NavBar";
 import Overlay from "./_components/overlay";
+import { Suspense } from "react";
+import Cursor from "~/components/cursor";
 
 const displayFont = Righteous({
   weight: ["400"],
@@ -72,10 +74,9 @@ export default function RootLayout({
       lang="en"
       className={`${displayFont.variable} ${mainFont.className} ${bopFont.variable} bg-slate-950 text-rose-500`}
     >
-      <body className="w-svw">
-        <NavBar />
-        {children}
-        <Overlay />
+      <body className="w-svw overflow-hidden">
+        <Suspense fallback={"test"}>{children}</Suspense>
+        <Cursor />
       </body>
     </html>
   );

@@ -3,7 +3,7 @@
 "use client";
 import { motion, useAnimate } from "framer-motion";
 import { ReactNode, useEffect, useRef, useState } from "react";
-import { COLORS } from "~/app/data";
+import { TWCOLORS, UTILCOLORS } from "~/app/data";
 import { fitRange } from "~/lib/utils";
 
 export default function AnimLettersPeak({
@@ -40,10 +40,6 @@ function Letter({ letter, ...props }: { letter: string }) {
 
   const [hovered, setHovered] = useState(false);
 
-  const [rotate, setRotate] = useState([0]);
-  const [scale, setScale] = useState(1);
-  const [color, setColor] = useState("");
-
   const rotationRange = fitRange(Math.random(), 0, 1, 8, 12);
   const rotateAmt = Math.random() > 0.5 ? rotationRange : -rotationRange;
 
@@ -54,7 +50,7 @@ function Letter({ letter, ...props }: { letter: string }) {
   function hoverLetter() {
     animate(
       scope.current,
-      { color: COLORS.ROSECOLOR400 },
+      { color: UTILCOLORS.HEADING_2.REGULAR_HOVERED },
       { duration: 0.3, type: "spring" },
     );
   }
@@ -62,7 +58,7 @@ function Letter({ letter, ...props }: { letter: string }) {
   function mouseDownLetter() {
     animate(
       scope.current,
-      { color: COLORS.ROSECOLOR200 },
+      { color: UTILCOLORS.HEADING_2.REGULAR_CLICKED },
       { duration: 0.5, type: "spring" },
     );
   }
@@ -70,7 +66,7 @@ function Letter({ letter, ...props }: { letter: string }) {
   function mouseUpLetter() {
     animate(
       scope.current,
-      { color: COLORS.ROSECOLOR400 },
+      { color: UTILCOLORS.HEADING_2.REGULAR_HOVERED },
       { duration: 0.3, type: "spring" },
     );
   }

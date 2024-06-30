@@ -8,8 +8,8 @@ export default function Cursor() {
     <AnimatedCursor
       color="250,30,40"
       innerSize={15}
-      outerSize={100}
-      innerScale={0.3}
+      outerSize={220}
+      innerScale={0.5}
       outerScale={1.75}
       outerAlpha={0.75}
       trailingSpeed={1.5}

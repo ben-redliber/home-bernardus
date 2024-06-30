@@ -1,5 +1,5 @@
 import { MeshDistortMaterial } from "@react-three/drei";
-import { CustomSin } from "~/app/data";
+import { CustomSin, UTILCOLORS } from "~/app/data";
 
 export function WebStrings({
   tubeRadius = 0.1,
@@ -17,6 +17,7 @@ export function WebStrings({
     <mesh {...prop} renderOrder={1}>
       <tubeGeometry args={[path, 500, tubeRadius, 100, false]} />
       <MeshDistortMaterial
+        color={UTILCOLORS.OBJECTS.PINK}
         depthTest={false}
         radius={2}
         distort={matDistort}

@@ -5,7 +5,7 @@ import { useMemo, useRef } from "react";
 import useScreenSize from "use-screen-size";
 import useMousePos from "~/hooks/use-mouse-pos";
 import * as THREE from "three";
-import { COLORS, SCROLLS } from "~/app/data";
+import { SCROLLS, TWCOLORS, UTILCOLORS } from "~/app/data";
 import { WebStrings } from "./web-strings";
 
 export function Hero() {
@@ -14,6 +14,7 @@ export function Hero() {
   const scroll = useScroll();
   const { x, y } = useMousePos();
   const three = useThree();
+  const meshRadius = THREE.MathUtils.mapLinear(width, 2000, 300, 12, 9.5);
 
   const lensUniforms = useMemo(
     () => ({
@@ -61,7 +62,7 @@ export function Hero() {
     if (scroll.offset > SCROLLS.SCROLLOFFSET_1) {
       camera.position.z = THREE.MathUtils.lerp(
         camera.position.z,
-        5 - SCROLLS.SCROLLOFFSET_1 * 30,
+        5 - SCROLLS.SCROLLOFFSET_1 * 50,
         0.1,
       );
     }
@@ -83,19 +84,25 @@ export function Hero() {
           name="white-trails"
           castShadow
         >
-          <torusKnotGeometry args={[7, 0.1, 4000, 100, arms, arms * 5]} />
-          <MeshDistortMaterial distort={0.2} speed={2} color="white" />
+          <torusKnotGeometry
+            args={[meshRadius * 0.8, 0.1, 4000, 100, arms, arms * 5]}
+          />
+          <MeshDistortMaterial
+            distort={0.2}
+            speed={5}
+            color={UTILCOLORS.OBJECTS.PINK}
+          />
         </mesh>
         <mesh
           name="red-veins"
           rotation={[-Math.PI / 1, 0, 0]}
           position={[0, 0, 0]}
         >
-          <torusKnotGeometry args={[12, 0.75, 4000, 200, 30, 12]} />
+          <torusKnotGeometry args={[meshRadius, 0.75, 4000, 200, 30, 12]} />
           <MeshDistortMaterial
             distort={0.2}
             speed={1.5}
-            color={COLORS.ROSECOLOR500}
+            color={UTILCOLORS.OBJECTS.RED}
           />
         </mesh>
         <WebStrings

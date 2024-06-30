@@ -3,12 +3,13 @@ import { useRef, useState } from "react";
 import useScreenSize from "use-screen-size";
 import * as THREE from "three";
 import { ScrollControls, Scroll } from "@react-three/drei";
-import { SCROLLS, COLORS } from "../data";
+import { SCROLLS, TWCOLORS, UTILCOLORS } from "../data";
 import DarkSpeed from "./three-objects/dark-speed";
 import { SphereNoise } from "./three-objects/sphere-noise";
 import { ThreeTransitions } from "./three-transitions";
 import { Hero } from "./three-objects/hero";
 import ThreeHTML from "./three-html";
+import { WebStrings } from "./three-objects/web-strings";
 
 export default function ThreeLayout() {
   const { width, height } = useScreenSize();
@@ -23,7 +24,9 @@ export default function ThreeLayout() {
   const creativityArr = Array.from("G".repeat(10));
 
   const sphereRadius = THREE.MathUtils.mapLinear(width, 2000, 300, 12, 2);
-  const [BGCOLOR, setBGCOLOR] = useState(new THREE.Color(COLORS.SLATE950));
+  const [BGCOLOR, setBGCOLOR] = useState(
+    new THREE.Color(UTILCOLORS.OBJECTS.BACKGROUND),
+  );
   const [speed, setSpeed] = useState(0.5);
   function handleNewColor(newcolor: THREE.Color) {
     ref.current.lerp(new THREE.Color(newcolor), 0.1);
@@ -47,7 +50,25 @@ export default function ThreeLayout() {
         <Hero />
       </Scroll>
       <Scroll>
-        <SphereNoise renderOrder={0} position={[0, -36, -15]} />
+        <SphereNoise
+          useBackside={true}
+          renderOrder={0}
+          position={[0, -36, -15]}
+        />
+        <WebStrings
+          tubeRadius={0.075}
+          matDistort={0.2}
+          matSpeed={4}
+          position={[-16, -36, -15]}
+          rotation={[0, Math.PI * 2, 0]}
+        />
+        <WebStrings
+          tubeRadius={0.3}
+          matDistort={0.2}
+          matSpeed={4}
+          position={[-20, -38, -15]}
+          rotation={[0, Math.PI * 2, 0]}
+        />
       </Scroll>
       <Scroll>
         <DarkSpeed

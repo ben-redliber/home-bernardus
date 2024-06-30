@@ -1,9 +1,9 @@
 /* eslint-disable */
 
 "use client";
-import { motion, useAnimate } from "framer-motion";
+import { motion, useAnimate, useInView } from "framer-motion";
 import { ReactNode, useEffect, useRef, useState } from "react";
-import { COLORS } from "~/app/data";
+import { TWCOLORS, UTILCOLORS } from "~/app/data";
 import { fitRange } from "~/lib/utils";
 
 export default function AnimLetters({
@@ -20,12 +20,42 @@ export default function AnimLetters({
   spanIndex?: number;
   className: string;
 }) {
+  const [scope, animate] = useAnimate();
+  const isInView = useInView(scope);
+  const [indicateDone, setDone] = useState(false);
+
+  useEffect(() => {
+    if (isInView && !indicateDone) {
+      animate([
+        [
+          scope.current,
+          { opacity: 0, scale: 1, y: 100 },
+          { duration: 0, type: "spring" },
+        ],
+        [
+          scope.current,
+          { opacity: 1, scale: 1, y: 0 },
+          {
+            duration: 1,
+            type: "spring",
+            delay: 0.25,
+          },
+        ],
+      ]);
+      setDone(true);
+    }
+  }, [isInView, indicateDone, setDone]);
+
   let lettersArr;
   if (typeof children == "string" && children) {
     lettersArr = children.split("");
 
     return (
-      <div className={`${className} flex flex-row gap-0`}>
+      <div
+        className={`${className} flex flex-row gap-0`}
+        ref={scope}
+        style={{ opacity: 0 }}
+      >
         {lettersArr.map((item, index) => {
           if (item == " ") {
             return (
@@ -46,8 +76,12 @@ export default function AnimLetters({
 }
 
 function Letter({ letter, span, ...props }: { letter: string; span: boolean }) {
-  const letterColor = span ? COLORS.ROSECOLOR : COLORS.GRAY300;
-  const hoverColor = span ? COLORS.AMBER200 : COLORS.ROSECOLOR200;
+  const letterColor = span
+    ? UTILCOLORS.HEADING.ACCENT
+    : UTILCOLORS.HEADING.REGULAR;
+  const hoverColor = span
+    ? UTILCOLORS.HEADING.ACCENT_HOVERED
+    : UTILCOLORS.HEADING.REGULAR_HOVERED;
   const [scope, animate] = useAnimate();
 
   const [hovered, setHovered] = useState(false);
@@ -74,7 +108,11 @@ function Letter({ letter, span, ...props }: { letter: string; span: boolean }) {
   function mouseDownLetter() {
     animate(
       scope.current,
-      { scale: 1.25, rotate: rotateAmt * 0.5, color: COLORS.GRAY600 },
+      {
+        scale: 1.25,
+        rotate: rotateAmt * 0.5,
+        color: UTILCOLORS.HEADING.REGULAR_CLICKED,
+      },
       { duration: 0.5, type: "spring" },
     );
   }

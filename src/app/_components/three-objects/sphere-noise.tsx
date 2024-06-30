@@ -5,13 +5,18 @@ import { useFrame } from "@react-three/fiber";
 
 import frag from "~/shaders/sphere-noise/fragment.glsl";
 import sphereNoiseVertex from "~/shaders/sphere-noise/vertex.glsl";
-import { COLORS } from "~/app/data";
+import { TWCOLORS, UTILCOLORS } from "~/app/data";
 
-export function SphereNoise({ ...props }) {
+export function SphereNoise({
+  useBackside,
+  ...props
+}: {
+  useBackside?: boolean;
+}) {
   const meshRef = useRef();
   const hoverRef = useRef(false);
   const { width, height } = useScreenSize();
-  const sphereRadius = THREE.MathUtils.mapLinear(width, 2000, 300, 12, 2);
+  const sphereRadius = THREE.MathUtils.mapLinear(width, 2000, 300, 12, 8);
 
   const uniforms = useMemo(
     () => ({
@@ -19,7 +24,7 @@ export function SphereNoise({ ...props }) {
         value: 0.0,
       },
       u_intensity: {
-        value: 2,
+        value: 1,
       },
     }),
     [],
@@ -31,7 +36,7 @@ export function SphereNoise({ ...props }) {
       0.5 * clock.getElapsedTime();
     meshRef.current.material.uniforms.u_intensity.value = THREE.MathUtils.lerp(
       meshRef.current.material.uniforms.u_intensity.value,
-      hoverRef.current ? 5 : 2.5,
+      hoverRef.current ? 1.2 : 0.8,
       0.05,
     );
   });
@@ -50,13 +55,15 @@ export function SphereNoise({ ...props }) {
           uniforms={uniforms}
         />
       </mesh>
-      <mesh scale={[0.9, 0.9, 0.9]}>
-        <icosahedronGeometry args={[sphereRadius, 60]} />
-        <meshBasicMaterial
-          color={COLORS.ROSECOLORSPHERE}
-          side={THREE.BackSide}
-        />
-      </mesh>
+      {useBackside && (
+        <mesh scale={[0.975, 0.975, 0.975]}>
+          <icosahedronGeometry args={[sphereRadius, 60]} />
+          <meshBasicMaterial
+            color={TWCOLORS.ROSECOLORSPHERE}
+            side={THREE.BackSide}
+          />
+        </mesh>
+      )}
     </group>
   );
 }

@@ -3,13 +3,8 @@ import { useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
+import { UTILCOLORS } from "~/app/data";
 import { fitRange } from "~/lib/utils";
-
-const ROSECOLOR = "#be123c";
-const ROSECOLOR500 = "#f43f5e";
-const ROSECOLOR400 = "#fb7185";
-const ROSECOLORSPHERE = "#FF415C";
-const SLATE950 = "#020617";
 
 const TIMESTRETCH = 50;
 const POSOFFSET = 40;
@@ -66,7 +61,10 @@ export default function DarkSpeed({
               // scale={[scaler, scaler, scaler]}
             >
               <ringGeometry args={[radius, tube, detail]} />
-              <meshBasicMaterial depthTest={false} color={ROSECOLORSPHERE} />
+              <meshBasicMaterial
+                depthTest={false}
+                color={UTILCOLORS.OBJECTS.RED}
+              />
             </mesh>
           );
         })}
@@ -89,7 +87,10 @@ export default function DarkSpeed({
               // scale={[scaler, scaler, scaler]}
             >
               <ringGeometry args={[radius, tube, detail]} />
-              <meshBasicMaterial depthTest={false} color={SLATE950} />
+              <meshBasicMaterial
+                depthTest={false}
+                color={UTILCOLORS.OBJECTS.BLACK}
+              />
             </mesh>
           );
         })}
