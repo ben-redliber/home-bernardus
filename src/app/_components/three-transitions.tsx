@@ -19,7 +19,7 @@ export function ThreeTransitions({
       sendNewSpeed(0.15);
     } else if (scroll.offset < SCROLLS.SCROLLOFFSET_1 * 1.3) {
       // sendNewColor(new THREE.Color(SLATE950));
-      sendNewSpeed(0.4);
+      sendNewSpeed(0.25);
     }
   });
   return (

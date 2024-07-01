@@ -142,7 +142,7 @@ export default function AnimModal({
       <div className="static bg-transparent">{children}</div>
       {hasModal && smallScreen && (
         <div
-          className="mb-8 mt-5 flex min-h-24 max-w-[50%] justify-start bg-rose-500 px-1 py-3 md:hidden"
+          className="mb-8 mt-2 flex min-h-24 max-w-[50%] justify-start py-3 md:hidden"
           style={{
             fontFamily: "'__Archivo_b2f0d5', '__Archivo_Fallback_b2f0d5'",
           }}

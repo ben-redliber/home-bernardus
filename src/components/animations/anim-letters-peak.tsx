@@ -72,7 +72,11 @@ function Letter({ letter, ...props }: { letter: string }) {
   }
 
   function hoverLetterEnd() {
-    animate(scope.current, { color: "" }, { duration: 0.5, type: "spring" });
+    animate(
+      scope.current,
+      { color: UTILCOLORS.HEADING_2.REGULAR },
+      { duration: 0.5, type: "spring" },
+    );
   }
 
   return (

@@ -14,20 +14,12 @@ import { WebStrings } from "./three-objects/web-strings";
 export default function ThreeLayout() {
   const { width, height } = useScreenSize();
   const ref = useRef();
-  const data = [
-    "THE BEST ART CAPTURES SKELETONS IN THE FLESH",
-    "THE BEST STORIES ARE WRITTEN IN BLOOD",
-    "THE BEST EXPERIENCES PUMPS YOUR HEARTRATE",
-  ];
-
-  const creativity = "CREATIVITY AT THE SPEED OF DARK";
-  const creativityArr = Array.from("G".repeat(10));
 
   const sphereRadius = THREE.MathUtils.mapLinear(width, 2000, 300, 12, 2);
   const [BGCOLOR, setBGCOLOR] = useState(
     new THREE.Color(UTILCOLORS.OBJECTS.BACKGROUND),
   );
-  const [speed, setSpeed] = useState(0.5);
+  const [speed, setSpeed] = useState(0.25);
   function handleNewColor(newcolor: THREE.Color) {
     ref.current.lerp(new THREE.Color(newcolor), 0.1);
   }
@@ -39,6 +31,7 @@ export default function ThreeLayout() {
       pages={SCROLLS.SCROLLPAGES}
       distance={0.5}
       maxSpeed={speed}
+      damping={0.1}
       // eps={0.0001}
     >
       <color ref={ref} attach="background" args={[BGCOLOR]} />

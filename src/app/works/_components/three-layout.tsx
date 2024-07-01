@@ -18,6 +18,7 @@ import { useFrame } from "@react-three/fiber";
 import AnimLettersHero from "~/components/animations/anim-letters-hero";
 import AnimLetters from "~/components/animations/anim-letters";
 import AnimModal from "~/components/animations/anim-modal";
+import AnimLettersPeak from "~/components/animations/anim-letters-peak";
 
 export default function ThreeLayout() {
   const meshRef = useRef();
@@ -43,7 +44,7 @@ export default function ThreeLayout() {
       0.2 * clock.getElapsedTime();
   });
   return (
-    <ScrollControls pages={PROJECTS.length * 0.4} distance={0.5}>
+    <ScrollControls pages={PROJECTS.length * 0.5} distance={0.5} damping={0.1}>
       <Scroll>
         <mesh ref={meshRef} position={[0, 20, -20]} scale={[1, 1, 1]}>
           <icosahedronGeometry args={[20, 160]} />
@@ -57,7 +58,7 @@ export default function ThreeLayout() {
       <Scroll html>
         <div className="absolute top-[17.5vh] w-[100vw] md:top-[5vh]">
           <div className="absolute w-[100vw]">
-            <div className="font-hardbop flex  flex-col content-center justify-center gap-0 text-center align-top text-[24vw] font-black md:gap-16 md:text-[20vw]">
+            <div className="font-hardbop flex  flex-col content-center justify-center gap-20 text-center align-top text-[24vw] font-black md:gap-48 md:text-[20vw]">
               {PROJECTS.map((item, index) => {
                 return (
                   <AnimModal

@@ -104,25 +104,26 @@ function Proverbs() {
       }}
     >
       <div
-        className="font-hardbop flex w-full flex-col gap-12 px-2 text-center text-[18vw] font-black leading-[14vw] text-gray-50 md:px-60 md:text-[16vw] md:leading-[12vw]"
+        className="font-hardbop flex w-full flex-col gap-20 px-2 text-center text-[23vw] font-black leading-[18vw] text-gray-50 md:px-60 md:text-[16vw] md:leading-[12vw]"
         style={{ letterSpacing: "0em" }}
       >
         <div className="w-full">
-          <AnimLetters className="justify-end">THE BEST ART PAINT</AnimLetters>
-          <AnimLetters className="" span spanIndex={12}>
-            SKELETONS ON FLESH
+          <AnimLetters className="justify-end">THE BEST ART</AnimLetters>
+          <AnimLetters className="justify-end">SCULPTS SKELETONS</AnimLetters>
+          <AnimLetters className="" span spanIndex={6}>
+            OUT OF FLESH
           </AnimLetters>
         </div>
         <div className="w-full">
-          <AnimLetters className="justify-start">
-            THE BEST STORIES ARE
-          </AnimLetters>
-          <AnimLetters className="justify-end" span spanIndex={10}>
-            WRITTEN IN BLOOD
+          <AnimLetters className="justify-start">THE BEST STORIES</AnimLetters>
+          <AnimLetters className="justify-end">ARE WRITTEN</AnimLetters>
+          <AnimLetters className="justify-end" span spanIndex={2}>
+            IN BLOOD
           </AnimLetters>
         </div>
         <div className="w-full">
-          <AnimLetters className="justify-center">THE BEST CODES</AnimLetters>
+          <AnimLetters className="justify-start">THE BEST</AnimLetters>
+          <AnimLetters className="justify-center">EXPERIENCES</AnimLetters>
           <AnimLetters className="" span spanIndex={8}>
             PUMP THE HEART
           </AnimLetters>
@@ -141,10 +142,9 @@ function SpeedOfDark() {
       }}
     >
       <div
-        className="font-hardbop flex w-full flex-col justify-center px-1 text-center text-[18vw] font-black "
+        className="font-hardbop flex w-full flex-col justify-center px-1 text-center text-[23vw] font-black leading-[18vw] md:text-[18vw] md:leading-[13.25vw]"
         style={{
           letterSpacing: "0em",
-          lineHeight: "14vw",
         }}
       >
         <AnimLetters className="justify-start">WIELDING</AnimLetters>

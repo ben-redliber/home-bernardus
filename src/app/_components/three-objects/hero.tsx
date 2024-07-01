@@ -105,13 +105,13 @@ export function Hero() {
             color={UTILCOLORS.OBJECTS.RED}
           />
         </mesh>
-        <WebStrings
+        {/* <WebStrings
           tubeRadius={0.075}
           matDistort={0.2}
           matSpeed={1}
           position={[-16, 0, -3]}
           rotation={[0, Math.PI * 2, 0]}
-        />
+        /> */}
       </group>
     </>
   );
